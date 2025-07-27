@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe | Modern Edition</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>Tic Tac Toe</h1>
-        <div class="status">Player X's turn</div>
+        <div class="game-header">
+            <h1><i class="fas fa-times-circle"></i> Tic Tac Toe <i class="far fa-circle"></i></h1>
+            <div class="player-turn">
+                <div class="player-indicator x-active" id="player-x">Player X</div>
+                <div class="player-indicator" id="player-o">Player O</div>
+            </div>
+        </div>
+        
+        <div class="status" id="status">Player X's turn</div>
+        
         <div class="board" id="board">
             <div class="cell" data-index="0"></div>
             <div class="cell" data-index="1"></div>
@@ -21,8 +31,42 @@
             <div class="cell" data-index="7"></div>
             <div class="cell" data-index="8"></div>
         </div>
-        <button class="reset-btn">Reset Game</button>
+        
+        <div class="game-footer">
+            <div class="scoreboard">
+                <div class="score x-score">
+                    <span>X</span>
+                    <span id="x-wins">0</span>
+                </div>
+                <div class="score ties">
+                    <span>Ties</span>
+                    <span id="ties">0</span>
+                </div>
+                <div class="score o-score">
+                    <span>O</span>
+                    <span id="o-wins">0</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn reset-btn" id="reset-btn">
+                    <i class="fas fa-redo"></i> Reset Game
+                </button>
+                <button class="btn new-game-btn" id="new-game-btn">
+                    <i class="fas fa-plus-circle"></i> New Game
+                </button>
+            </div>
+        </div>
     </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Game Over!</h2>
+            <p id="modal-message">Player X wins!</p>
+            <button class="btn modal-btn" id="modal-btn">Play Again</button>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
